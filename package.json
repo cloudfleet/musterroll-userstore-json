@@ -1,0 +1,23 @@
+{
+  "name": "musterroll-userstore-json",
+  "version": "0.0.1",
+  "description": "A simple json file based userstore for the musterroll user management framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cloudfleet/musterroll-userstore-json.git"
+  },
+  "author": "Christoph Witzany <christoph@cloudfleet.io> (cloudfleet.io)",
+  "license": "AGPL",
+  "bugs": {
+    "url": "https://github.com/cloudfleet/musterroll-userstore-json/issues"
+  },
+  "homepage": "https://github.com/cloudfleet/musterroll-userstore-json",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "scrypt": "^3.0.1"
+  }
+}

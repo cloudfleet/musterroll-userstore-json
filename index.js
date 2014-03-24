@@ -11,9 +11,16 @@ var ConfigFileUserStore = function(options)
 
     var loadConfigFile = function(filename)
     {
-        var fileContent = fs.readFileSync(config_file_location + filename);
+        try{
+            var fileContent = fs.readFileSync(config_file_location + filename);
+            return JSON.parse(fileContent);
+        }
+        catch (e) {
+            console.log("Could not read file " + config_file_location + filename + ", creating empty store");
+            return {};
+        }
 
-        return JSON.parse(fileContent);
+
     };
     var saveConfigFile = function(filename, object)
     {

@@ -9,6 +9,11 @@ var ConfigFileUserStore = function(options)
     var config_file_location = (options["config_file_location"] || "data") + "/";
     var config_file_name = options["config_file_name"] || "users.json";
 
+    if(!fs.existsSync(config_file_location))
+    {
+        fs.mkdirSync(config_file_location);
+    }
+
     var loadConfigFile = function(filename)
     {
         try{

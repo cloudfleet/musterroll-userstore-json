@@ -1,6 +1,6 @@
 var fs = require('fs');
 var _ = require('lodash');
-var scrypt = require('scrypt');
+var bcrypt = require('bcrypt');
 
 
 
@@ -48,7 +48,7 @@ var ConfigFileUserStore = function(options)
     {
         var user2bind = users[  username];
         var passwordHash = user2bind.password;
-        return scrypt.verifyHashSync(passwordHash, password);
+        return bcrypt.compareSync(password, passwordHash);
 
     };
 
@@ -74,7 +74,8 @@ var ConfigFileUserStore = function(options)
 
     this.setPassword = function(user_id, password_plain)
     {
-        users[user_id]["password"] = scrypt.passwordHashSync(password_plain, 0.1);
+        users[user_id]["password"] = bcrypt.hashSync(password_plain,
+                                                     bcrypt.genSaltSync());
         users[user_id]["password_set"] = true;
         saveConfigFile("users.json", users);
     };
@@ -82,7 +83,7 @@ var ConfigFileUserStore = function(options)
     this.isInitialized = function()
     {
         return !!users.length;
-    }
+    };
 
 };
 

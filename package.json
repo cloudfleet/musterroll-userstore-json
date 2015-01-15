@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/cloudfleet/musterroll-userstore-json",
   "dependencies": {
-    "lodash": "^2.4.1",
-    "scrypt": "^3.0.1"
+    "bcrypt": "^0.8.0",
+    "lodash": "^2.4.1"
   },
   "devDependencies": {
     "mocha": "^2.1.0"

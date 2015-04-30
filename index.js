@@ -34,7 +34,7 @@ var ConfigFileUserStore = function(options)
     };
 
 
-    var users = loadConfigFile(config_file_name);
+    var users = loadConfigFile(config_file_name).users;
 
 
     var sanitize_user = function(user)
@@ -69,7 +69,7 @@ var ConfigFileUserStore = function(options)
     this.updateUser = function(user)
     {
         users[user["id"]] = user;
-        saveConfigFile("users.json", users);
+        saveConfigFile("users.json", {users: users});
     };
 
     this.setPassword = function(user_id, password_plain)
@@ -77,7 +77,7 @@ var ConfigFileUserStore = function(options)
         users[user_id]["password"] = bcrypt.hashSync(password_plain,
                                                      bcrypt.genSaltSync());
         users[user_id]["password_set"] = true;
-        saveConfigFile("users.json", users);
+        saveConfigFile("users.json", {users: users});
     };
 
     this.isInitialized = function()

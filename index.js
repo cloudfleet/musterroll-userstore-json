@@ -22,7 +22,7 @@ var ConfigFileUserStore = function(options)
         }
         catch (e) {
             console.log("Could not read file " + config_file_location + filename + ", creating empty store");
-            return {};
+            return {users:{}};
         }
 
 

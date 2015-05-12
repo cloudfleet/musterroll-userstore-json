@@ -71,6 +71,11 @@ var ConfigFileUserStore = function(options)
         users[user["id"]] = user;
         saveConfigFile("users.json", {users: users});
     };
+    this.deleteUser = function(user_id)
+    {
+        delete users[user_id];
+        saveConfigFile("users.json", {users: users});
+    };
 
     this.setPassword = function(user_id, password_plain)
     {

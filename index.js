@@ -47,8 +47,7 @@ var ConfigFileUserStore = function(options)
     this.authorize = function(username, password)
     {
         var user2bind = users[  username];
-        var passwordHash = user2bind.password;
-        return bcrypt.compareSync(password, passwordHash);
+        return user2bind && user2bind.password && bcrypt.compareSync(password, user2bind.password);
 
     };
 

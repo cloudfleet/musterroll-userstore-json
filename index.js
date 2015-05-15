@@ -86,7 +86,7 @@ var ConfigFileUserStore = function(options)
 
     this.isInitialized = function()
     {
-        return !!users.length;
+        return !!_.keys(users).length;
     };
 
 };
